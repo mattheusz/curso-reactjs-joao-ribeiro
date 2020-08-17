@@ -17,15 +17,41 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        function MeuComponente() {
-            let nome = "Matheus"
-            return (
-                <div>
-                    <h1>Olá, React</h1>
-                    <p>O meu nome é {nome}</p>
-                </div>
-            )
+
+        {/*Class Component*/ }
+
+        class CompA extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>CompA</h1>
+                    </div>
+                )
+            }
         }
+
+        class CompB extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1>CompB</h1>
+                    </div>
+                )
+            }
+        }
+
+        class MeuComponente extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <CompA />
+                        <hr />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
+
         let root = document.getElementById('root')
         ReactDOM.render(<MeuComponente />, root);
     </script>
