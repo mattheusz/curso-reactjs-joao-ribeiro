@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+            padding: 1rem;
+        }
+
+        .blue {
+            background-color: blue;
+            color: white;
+            padding: 1rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,18 +38,28 @@
 
         {/* Props dentro de Props e soma com Props */ }
 
-        function Adicao(props) {
+        function CompA() {
             return (
-                <div>
-                    A soma de {props.a} + {props.b} = {props.a + props.b}
+                <div className='red'>
+                    <p>Comp A</p>
                 </div>
             )
         }
 
-        function App(props) {
+        function CompB() {
+            return (
+                <div className='blue'>
+                    <p>Comp B</p>
+                </div>
+            )
+        }
+
+
+        function App() {
             return (
                 <div>
-                    <Adicao a={10} b={11} />
+                    <CompA />
+                    <CompB />
                 </div>
             )
         }
