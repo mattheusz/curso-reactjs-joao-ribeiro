@@ -36,35 +36,50 @@
 
     <script type="text/babel">
 
-        {/* Diferença entre state e props */ }
+        {/* Passando state de pai para filho */ }
 
-        class App extends React.Component {
-            constructor(props) {
-                super(props)
-
+        class Identificacao extends React.Component {
+            constructor() {
+                super()
                 this.state = {
-                    nome: "Matheus",
-                    idade: "21"
+                    nome: 'Matheus',
+                    idade: '21'
                 }
             }
 
-
             render() {
-                this.state.nome = "André";
-
-                // Uma props não pode ser reatribuída ou alterada, por isso o comentário 
-                // this.props.sobrenome = "Silva"
                 return (
                     <div>
-                        <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
-                        <p>Idade: {this.state.idade}</p>
+                        <Nome nome={this.state.nome} />
+                        <Idade idade={this.state.idade} />
                     </div>
                 )
             }
         }
 
+        class Nome extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>Nome: {this.props.nome}</p>
+                    </div>
+                )
+            }
+        }
+
+        class Idade extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <p>Idade: {this.props.idade}</p>
+                    </div>
+                )
+            }
+        }
+
+
         let root = document.getElementById('root')
-        ReactDOM.render(<App sobrenome='Justino' />, root);
+        ReactDOM.render(<Identificacao sobrenome='Justino' />, root);
 
     </script>
 </body>
