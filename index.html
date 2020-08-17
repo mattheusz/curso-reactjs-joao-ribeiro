@@ -18,42 +18,28 @@
 
     <script type="text/babel">
 
-        {/*Class Component*/ }
+        {/*Props in function component*/ }
 
-        class CompA extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <h1>CompA</h1>
-                    </div>
-                )
-            }
+        function CompA(props) {
+            return (
+                <div>
+                    <h1>Olá, {props.nome} {props.sobrenome}</h1>
+                </div>
+            )
         }
-
+        {/*Props in class component*/ }
         class CompB extends React.Component {
             render() {
                 return (
                     <div>
-                        <h1>CompB</h1>
-                    </div>
-                )
-            }
-        }
-
-        class MeuComponente extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <CompA />
-                        <hr />
-                        <CompB />
+                        <h1>Olá novamente, {this.props.nome} {this.props.sobrenome}</h1>
                     </div>
                 )
             }
         }
 
         let root = document.getElementById('root')
-        ReactDOM.render(<MeuComponente />, root);
+        ReactDOM.render(<CompB nome="Matheus" sobrenome="Justino" />, root);
     </script>
 </body>
 
