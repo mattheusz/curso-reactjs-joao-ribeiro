@@ -36,7 +36,7 @@
 
     <script type="text/babel">
 
-        {/* Introdução ao State*/ }
+        {/* Diferença entre state e props */ }
 
         class App extends React.Component {
             constructor(props) {
@@ -48,7 +48,12 @@
                 }
             }
 
+
             render() {
+                this.state.nome = "André";
+
+                // Uma props não pode ser reatribuída ou alterada, por isso o comentário 
+                // this.props.sobrenome = "Silva"
                 return (
                     <div>
                         <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
