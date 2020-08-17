@@ -38,34 +38,22 @@
 
         {/* Props dentro de Props e soma com Props */ }
 
-        function CompA() {
-            return (
-                <div className='red'>
-                    <p>Comp A</p>
-                </div>
-            )
-        }
-
-        function CompB() {
-            return (
-                <div className='blue'>
-                    <p>Comp B</p>
-                </div>
-            )
-        }
-
-
-        function App() {
-            return (
+        function Tempo() {
+            let conteudo = (
                 <div>
-                    <CompA />
-                    <CompB />
+                    <h1>Tempo agora</h1>
+                    <p>São {new Date().toLocaleTimeString()}</p>
                 </div>
             )
+
+            let root = document.getElementById('root')
+            ReactDOM.render(conteudo, root);
         }
 
-        let root = document.getElementById('root')
-        ReactDOM.render(<App />, root);
+        setInterval(() => {
+            Tempo()
+        }, 1000);
+
     </script>
 </body>
 
