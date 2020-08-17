@@ -36,23 +36,30 @@
 
     <script type="text/babel">
 
-        {/* CSS inline - OS valores CSS devem sempre estar entre aspas*/ }
+        {/* Introdução ao State*/ }
 
-        function App() {
-            let estilo = {
-                backgroundColor: "red",
-                color: "white",
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+
+                this.state = {
+                    nome: "Matheus",
+                    idade: "21"
+                }
             }
-            return (
 
-                <div>
-                    <p style={estilo}>Sou um parágrafo</p>
-                </div>
-            )
+            render() {
+                return (
+                    <div>
+                        <p>Nome: {this.state.nome} {this.props.sobrenome}</p>
+                        <p>Idade: {this.state.idade}</p>
+                    </div>
+                )
+            }
         }
 
         let root = document.getElementById('root')
-        ReactDOM.render(<App />, root);
+        ReactDOM.render(<App sobrenome='Justino' />, root);
 
     </script>
 </body>
