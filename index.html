@@ -36,23 +36,23 @@
 
     <script type="text/babel">
 
-        {/* Props dentro de Props e soma com Props */ }
+        {/* CSS inline - OS valores CSS devem sempre estar entre aspas*/ }
 
-        function Tempo() {
-            let conteudo = (
+        function App() {
+            let estilo = {
+                backgroundColor: "red",
+                color: "white",
+            }
+            return (
+
                 <div>
-                    <h1>Tempo agora</h1>
-                    <p>São {new Date().toLocaleTimeString()}</p>
+                    <p style={estilo}>Sou um parágrafo</p>
                 </div>
             )
-
-            let root = document.getElementById('root')
-            ReactDOM.render(conteudo, root);
         }
 
-        setInterval(() => {
-            Tempo()
-        }, 1000);
+        let root = document.getElementById('root')
+        ReactDOM.render(<App />, root);
 
     </script>
 </body>
