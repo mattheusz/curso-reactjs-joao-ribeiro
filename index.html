@@ -43,8 +43,8 @@
 
         class App extends React.Component {
 
-            metodo = () => {
-                console.log('Olá filho');
+            metodo = (texto) => {
+                console.log(texto);
             }
 
             render() {
@@ -56,16 +56,15 @@
             }
         }
 
-
-        class Filho extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <button onClick={this.props.metodo}>Diga algo</button>
-                    </div>
-                )
-            }
+        function Filho(props) {
+            return (
+                <button onClick={() => {
+                    props.metodo('Ola mundo')
+                }} >Clique aqui</button>
+            )
         }
+
+
 
         let root = document.getElementById('root')
         ReactDOM.render(<App />, root);
