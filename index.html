@@ -29,35 +29,34 @@
     <div id="root"></div>
 
 
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js"
+        integrity="sha512-SUJujhtUWZUlwsABaZNnTFRlvCu7XGBZBL1VF33qRvvgNk3pBS9E353kcag4JAv05/nsB9sanSXFbdHAUW9+lg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"
+        integrity="sha512-SYsXmAblZhruCNUVmTp5/v2a1Fnoia06iJh3+L9B9wUaqpRVjcNBQsqAglQG9b5+IaVCfLDH5+vW923JL5epZA=="
+        crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
 
-        {/* Passando state de pai para filho */ }
-
         class App extends React.Component {
-            constructor(props) {
-                super(props)
-                this.handleClick = this.handleClick.bind(this);
+            constructor() {
+                super()
                 this.state = {
-                    nome: 'Matheus'
+                    nome: "Marcão"
                 }
             }
 
-            handleClick() {
-                this.setState({
-                    nome: 'Joaquim'
-                })
+            alterarNome = () => {
+                this.setState({ nome: 'Ana' })
             }
 
             render() {
                 return (
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.handleClick}> Clique</button>
+                        <button onClick={this.alterarNome}>Alterar nome</button>
                     </div>
                 )
             }
