@@ -40,23 +40,28 @@
 
     <script type="text/babel">
 
-        class App extends React.Component {
-            constructor() {
-                super()
-                this.state = {
-                    nome: "Marcão"
-                }
-            }
 
-            alterarNome = () => {
-                this.setState({ nome: 'Ana' })
+        class App extends React.Component {
+
+            metodo = () => {
+                console.log('Olá filho');
             }
 
             render() {
                 return (
                     <div>
-                        <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.alterarNome}>Alterar nome</button>
+                        <Filho metodo={this.metodo} />
+                    </div>
+                )
+            }
+        }
+
+
+        class Filho extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.props.metodo}>Diga algo</button>
                     </div>
                 )
             }
