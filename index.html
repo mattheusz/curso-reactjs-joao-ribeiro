@@ -38,48 +38,33 @@
 
         {/* Passando state de pai para filho */ }
 
-        class Identificacao extends React.Component {
-            constructor() {
-                super()
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.handleClick = this.handleClick.bind(this);
                 this.state = {
-                    nome: 'Matheus',
-                    idade: '21'
+                    nome: 'Matheus'
                 }
             }
 
+            handleClick() {
+                this.setState({
+                    nome: 'Joaquim'
+                })
+            }
+
             render() {
                 return (
                     <div>
-                        <Nome nome={this.state.nome} />
-                        <Idade idade={this.state.idade} />
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.handleClick}> Clique</button>
                     </div>
                 )
             }
         }
-
-        class Nome extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <p>Nome: {this.props.nome}</p>
-                    </div>
-                )
-            }
-        }
-
-        class Idade extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <p>Idade: {this.props.idade}</p>
-                    </div>
-                )
-            }
-        }
-
 
         let root = document.getElementById('root')
-        ReactDOM.render(<Identificacao sobrenome='Justino' />, root);
+        ReactDOM.render(<App />, root);
 
     </script>
 </body>
