@@ -41,35 +41,32 @@
     <script type="text/babel">
 
         function App() {
-            const { useState } = React;
-            const [tempoBom, setTempoBom] = useState(true)
 
-            /* Alternativa 1 if/else */
-            // if (tempoBom) {
-            //     return <p>Tempo bom</p>
-            // } else {
-            //     return <p>Tempo ruim</p>
-            // }
+            let pessoas = [
+                {
+                    nome: 'Matheus',
+                    idade: 21
+                },
+                {
+                    nome: 'Maria',
+                    idade: 23
+                },
+                {
+                    nome: 'Mariana',
+                    idade: 28
+                }
+            ]
 
-            /* Alternativa 2 if/else com variáveis */
-            // let texto;
-            // if (tempoBom)
-            //     texto = <p>Tempo bom</p>;
-            // else
-            //     texto = <p>Tempo ruim</p>;
+            console.log(pessoas);
 
-            // return texto;
+            let total = pessoas.map(pessoa => {
+                return <p>{pessoa.nome} tem {pessoa.idade} anos</p>
+            })
 
-            /* Alternativa 3 operador ternário */
-            // return (
-            //     tempoBom ?
-            //         <p>Tempo bom</p> :
-            //         <p>Tempo ruim</p>
-            // );
-
-            /* Alternativa 4 operador curto circuito ou circuito curto*/
             return (
-                tempoBom && <p>Tempo bom</p>
+                <div>
+                    {total}
+                </div>
             )
 
         }
