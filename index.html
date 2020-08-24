@@ -40,31 +40,39 @@
 
     <script type="text/babel">
 
+        function App() {
+            const { useState } = React;
+            const [tempoBom, setTempoBom] = useState(true)
 
-        class App extends React.Component {
+            /* Alternativa 1 if/else */
+            // if (tempoBom) {
+            //     return <p>Tempo bom</p>
+            // } else {
+            //     return <p>Tempo ruim</p>
+            // }
 
-            metodo = (texto) => {
-                console.log(texto);
-            }
+            /* Alternativa 2 if/else com variáveis */
+            // let texto;
+            // if (tempoBom)
+            //     texto = <p>Tempo bom</p>;
+            // else
+            //     texto = <p>Tempo ruim</p>;
 
-            render() {
-                return (
-                    <div>
-                        <Filho metodo={this.metodo} />
-                    </div>
-                )
-            }
-        }
+            // return texto;
 
-        function Filho(props) {
+            /* Alternativa 3 operador ternário */
+            // return (
+            //     tempoBom ?
+            //         <p>Tempo bom</p> :
+            //         <p>Tempo ruim</p>
+            // );
+
+            /* Alternativa 4 operador curto circuito ou circuito curto*/
             return (
-                <button onClick={() => {
-                    props.metodo('Ola mundo')
-                }} >Clique aqui</button>
+                tempoBom && <p>Tempo bom</p>
             )
+
         }
-
-
 
         let root = document.getElementById('root')
         ReactDOM.render(<App />, root);
