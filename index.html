@@ -42,41 +42,44 @@
 
         function App() {
 
-            let noticias = [
+            let socios = [
                 {
-                    titulo: 'Notícia 1',
-                    conteudo: 'Conteúdo da notícia 1'
+                    id: 1,
+                    nome: 'Andrey',
+                    idade: 26
                 },
                 {
-                    titulo: 'Notícia 2',
-                    conteudo: 'Conteúdo da notícia 2'
+                    id: 2,
+                    nome: 'Andrea',
+                    idade: 28
                 },
                 {
-                    titulo: 'Notícia 3',
-                    conteudo: 'Conteúdo da notícia 3'
+                    id: 3,
+                    nome: 'Andressa',
+                    idade: 24
                 }
-            ]
+            ];
 
-            let noticiasMap = noticias.map(noticia => {
-                return <Noticia noticia={noticia} />
-
+            let sociosMap = socios.map(({ id, nome, idade }) => {
+                return <Socios key={id} nome={nome} idade={idade} />
             })
+
+
 
             return (
                 <div>
-                    <h2>Notícias</h2>
-                    <hr />
-                    {noticiasMap}
+                    <h1>Sócios</h1>
+                    {sociosMap}
                 </div>
             )
 
         }
 
-        function Noticia(props) {
+        function Socios(props) {
             return (
                 <div>
-                    <h3>{props.noticia.titulo}</h3>
-                    <p>{props.noticia.conteudo}</p>
+                    <h4>{props.nome}</h4>
+                    <p>{props.dade}</p>
                 </div>
             )
         }
