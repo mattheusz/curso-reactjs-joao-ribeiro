@@ -42,33 +42,43 @@
 
         function App() {
 
-            let pessoas = [
+            let noticias = [
                 {
-                    nome: 'Matheus',
-                    idade: 21
+                    titulo: 'Notícia 1',
+                    conteudo: 'Conteúdo da notícia 1'
                 },
                 {
-                    nome: 'Maria',
-                    idade: 23
+                    titulo: 'Notícia 2',
+                    conteudo: 'Conteúdo da notícia 2'
                 },
                 {
-                    nome: 'Mariana',
-                    idade: 28
+                    titulo: 'Notícia 3',
+                    conteudo: 'Conteúdo da notícia 3'
                 }
             ]
 
-            console.log(pessoas);
+            let noticiasMap = noticias.map(noticia => {
+                return <Noticia noticia={noticia} />
 
-            let total = pessoas.map(pessoa => {
-                return <p>{pessoa.nome} tem {pessoa.idade} anos</p>
             })
 
             return (
                 <div>
-                    {total}
+                    <h2>Notícias</h2>
+                    <hr />
+                    {noticiasMap}
                 </div>
             )
 
+        }
+
+        function Noticia(props) {
+            return (
+                <div>
+                    <h3>{props.noticia.titulo}</h3>
+                    <p>{props.noticia.conteudo}</p>
+                </div>
+            )
         }
 
         let root = document.getElementById('root')
