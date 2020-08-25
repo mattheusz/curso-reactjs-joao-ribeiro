@@ -60,8 +60,8 @@
                 }
             ];
 
-            let sociosMap = socios.map(({ id, nome, idade }) => {
-                return <Socios key={id} nome={nome} idade={idade} />
+            let sociosMap = socios.map(({ id, nome, idade }, index) => {
+                return <Socios key={index} nome={nome} idade={idade} />
             })
 
 
