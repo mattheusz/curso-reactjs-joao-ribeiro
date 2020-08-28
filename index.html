@@ -17,10 +17,8 @@
             padding: 1rem;
         }
 
-        .blue {
-            background-color: blue;
-            color: white;
-            padding: 1rem;
+        .tamanho {
+            font-size: 3rem;
         }
     </style>
 </head>
@@ -40,52 +38,22 @@
 
     <script type="text/babel">
 
-        function App() {
+        function App(props) {
 
-            let socios = [
-                {
-                    id: 1,
-                    nome: 'Andrey',
-                    idade: 26
-                },
-                {
-                    id: 2,
-                    nome: 'Andrea',
-                    idade: 28
-                },
-                {
-                    id: 3,
-                    nome: 'Andressa',
-                    idade: 24
-                }
-            ];
+            // estilo css condicional
 
-            let sociosMap = socios.map(({ id, nome, idade }, index) => {
-                return <Socios key={index} nome={nome} idade={idade} />
-            })
-
-
+            let cor = props.cor ? 'red' : ''
+            let tamanho = props.tamanho ? 'tamanho' : ''
 
             return (
-                <div>
-                    <h1>Sócios</h1>
-                    {sociosMap}
-                </div>
+                <p className={`${cor} ${tamanho}`}>Texto lindo</p>
             )
 
         }
 
-        function Socios(props) {
-            return (
-                <div>
-                    <h4>{props.nome}</h4>
-                    <p>{props.dade}</p>
-                </div>
-            )
-        }
 
         let root = document.getElementById('root')
-        ReactDOM.render(<App />, root);
+        ReactDOM.render(<App cor={true} tamanho={false} />, root);
 
     </script>
 </body>
