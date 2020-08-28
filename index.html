@@ -38,18 +38,23 @@
 
     <script type="text/babel">
 
+        let { useState } = React
+
         function App(props) {
 
-            // estilo inline
-            let estilo = {
-                color: 'white',
-                backgroundColor: 'red',
-                textAlign: 'center',
-                font: '35px/3 sans-serif'
+            let [state, setstate] = useState("Matheus")
+
+            const alterarNome = (event) => {
+                setstate(event.target.value)
             }
 
             return (
-                <p style={estilo}>Texto lindo</p>
+                <div>
+                    <span>Digite o seu nome</span>
+                    <br />
+                    <input type="text" value={state} onChange={alterarNome} />
+                    <p>O seu nome é {state}</p>
+                </div>
             )
 
         }
