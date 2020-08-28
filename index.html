@@ -40,13 +40,16 @@
 
         function App(props) {
 
-            // estilo css condicional
-
-            let cor = props.cor ? 'red' : ''
-            let tamanho = props.tamanho ? 'tamanho' : ''
+            // estilo inline
+            let estilo = {
+                color: 'white',
+                backgroundColor: 'red',
+                textAlign: 'center',
+                font: '35px/3 sans-serif'
+            }
 
             return (
-                <p className={`${cor} ${tamanho}`}>Texto lindo</p>
+                <p style={estilo}>Texto lindo</p>
             )
 
         }
