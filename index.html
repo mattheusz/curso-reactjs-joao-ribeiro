@@ -44,16 +44,17 @@
 
             let [state, setstate] = useState("Matheus")
 
-            const alterarNome = (event) => {
+            const alterarTexto = (event) => {
                 setstate(event.target.value)
             }
 
             return (
                 <div>
-                    <span>Digite o seu nome</span>
+                    <span>Digite o texto</span>
                     <br />
-                    <input type="text" value={state} onChange={alterarNome} />
-                    <p>O seu nome é {state}</p>
+                    <textarea value={state} onChange={alterarTexto} cols="30" rows="10"></textarea>
+                    <p>O texto digitado é</p>
+                    <div>{state}</div>
                 </div>
             )
 
