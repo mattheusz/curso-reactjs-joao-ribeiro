@@ -38,32 +38,34 @@
 
     <script type="text/babel">
 
-        let { useState } = React
-
-        function App() {
-
-            const [state, setstate] = useState('item1')
-
-            // todo método onChange tem um parâmetro event implícito
-            const alterarItem = event => {
-                setstate(event.target.value)
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    nome: 'Joao'
+                }
+                console.log('Constructor');
             }
 
-            return (
-                <div>
-                    <h3>Selecione um item:</h3>
-                    <select value={state} onChange={alterarItem} name="items">
-                        <option value="item1">Item 1</option>
-                        <option value="item2">Item 2</option>
-                        <option value="item3">Item 3</option>
-                    </select>
-                </div>
-            )
+            componentDidMount() {
+                console.log('Montado');
+            }
+
+            alterarNome = () => {
+                this.setState({ nome: 'Joaquim' })
+            }
+
+            render() {
+                console.log('Render')
+                return (
+                    <div>
+                        <p>Olá {this.state.nome}</p>
+                        <button onClick={this.alterarNome}>Alterar nome</button>
+                    </div>
+                )
+            }
 
         }
-
-
-
 
         let root = document.getElementById('root')
         ReactDOM.render(<App cor={true} tamanho={false} />, root);
