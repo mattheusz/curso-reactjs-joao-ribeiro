@@ -40,25 +40,29 @@
 
         let { useState } = React
 
-        function App(props) {
+        function App() {
 
-            let [state, setstate] = useState("Matheus")
+            const [state, setstate] = useState('item1')
 
-            const alterarTexto = (event) => {
+            // todo método onChange tem um parâmetro event implícito
+            const alterarItem = event => {
                 setstate(event.target.value)
             }
 
             return (
                 <div>
-                    <span>Digite o texto</span>
-                    <br />
-                    <textarea value={state} onChange={alterarTexto} cols="30" rows="10"></textarea>
-                    <p>O texto digitado é</p>
-                    <div>{state}</div>
+                    <h3>Selecione um item:</h3>
+                    <select value={state} onChange={alterarItem} name="items">
+                        <option value="item1">Item 1</option>
+                        <option value="item2">Item 2</option>
+                        <option value="item3">Item 3</option>
+                    </select>
                 </div>
             )
 
         }
+
+
 
 
         let root = document.getElementById('root')
